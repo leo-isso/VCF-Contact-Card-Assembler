@@ -4,7 +4,7 @@
 """
 TEMPLATE_2_1 = f'''BEGIN:VCARD
 VERSION:2.1
-{};{};;{}.
+N:{};{};;{}.
 FN:{}
 ORG:{}
 TITLE:{}
