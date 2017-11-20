@@ -17,7 +17,7 @@ def encodeImage(file_location):
 
 def decodeImage():
     '''
-    #Not used in this app, but you can use to see which image is being built
+        Not used in this app, but you can use to see which image is being built
     '''
     string = B64_STRING
     byte_string = base64.b64decode(string)
