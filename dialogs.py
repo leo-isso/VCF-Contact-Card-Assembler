@@ -28,3 +28,8 @@ Author: Leonardo Isso
 https://leonardoisso.com.br/
 '''
 MSG_VERSION = '1.0.0'
+MSG_INPUT_ERROR = 'Invalid input, try again'
+
+#newContact MSG
+MSG_NEWCONTACT_START = 'New contact creation:'
+MSG_NEWCONTACT_VERSION = 'vCard Version[2.1 or 3.0(recommended)]: '
