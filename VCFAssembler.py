@@ -113,23 +113,52 @@ class ContactAssembler():
 
         self.addTemplate(template_photo)
 
+    def createEmail(self, email):
+        self.email = email
+
+        template_email = f'EMAIL:{email}'
+
+        self.addTemplate(template_email)
+
+    def createBDay (self, bdate):
+        self.bday = bdate
+
+        template_bday = f'BDAY:{bdate}'
+
+        self.addTemplate(template_bday)
+        
+    def createWork (self, w_organization, w_title):
+        self.work_org = w_organization
+        self.work_title = w_title
+
+        template_org = f'ORG:{w_organization}'
+        template_title = f'TITLE:{w_title}'
+
+        self.addTemplate(template_org)
+        self.addTemplate(template_title)
+        
 
 #TESTS
 if __name__ == '__main__':
     a = ContactAssembler()
     a.addVer('3.0')
     a.createName('Leonardo', 'Isso Blah', 'Dr.')
-    a.createPhone('CELL', '04111912345678')
+    a.createPhone('CELL', '005511912345678')
+    a.createPhone('HOME', '00551112345678')
+    a.createPhone('WORK', '00551187654321')
     a.createAdress('HOME', 'R. dos Bobos 0', 'Sao Paulo', 'SP', '22222-222', 'Brazil')
     a.createAdress('WORK', 'R. do Arouche 666', 'Sao Paulo', 'SP', '22222-666', 'Brazil')
     a.createImg('test_img.png')
+    a.createEmail('leoisso.work@gmail.com')
+    a.createBDay('19951107')
+    a.createWork('X Organization', 'FrontEnd Developer')
     a.createRev()
     a.endTemplate()
 
     #GET ALL CLASS VARS
-    #members = [getattr(a, attr) for attr in dir(a) if not callable(getattr(a,attr)) and not attr.startswith("__")]
+    #members = [getattr(a, attr) for attr in dir(a) if not callable(getattr(a,attr)) and not attr.startswith("__") and not attr.startswith('self.template')]
     #for var in members:
-    #    print('\n' + var) 
+    #    print(var) 
 
     with open('log.vcf', 'w+') as file:
         file.write(a.template)
