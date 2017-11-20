@@ -3,10 +3,20 @@
 """
 
 MSG_START = 'Welcome to VCF Contact Card Assembler'
-MSG_HELP = '''
-This script compose, decompose, read and edit vCards in (.vcf) extension.
+MSG_HELP = '''This script compose, decompose, read and edit vCards in (.vcf) extension.
 (Use "commands" to see the command list.)
 '''
+MSG_INPUT = '>>> '
+CMD_LIST = [
+    'new_contact',
+    'new_contactlist'
+    'edit_contact',
+    'edit_contactlist',
+    'read_contact',
+    'read_contactlist',
+    'commands',
+    'version',
+    'credits']
 MSG_CMDLIST = '''
 "new_contact"           Create new single contact vCard
 "new_contactlist"       Create new contact list vCard
