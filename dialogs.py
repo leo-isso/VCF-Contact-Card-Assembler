@@ -1,0 +1,30 @@
+"""
+    This script contains the user dialogs
+"""
+
+MSG_START = 'Welcome to VCF Contact Card Assembler'
+MSG_HELP = '''
+This script compose, decompose, read and edit vCards in (.vcf) extension.
+(Use "commands" to see the command list.)
+'''
+MSG_CMDLIST = '''
+"new_contact"           Create new single contact vCard
+"new_contactlist"       Create new contact list vCard
+"edit_contact"          Edit single contact vCard
+"edit_contactlist"      Edit contact list vCard
+"read_contact"          Read single contact vCard
+"read_contactlist"      Read contact list vCard
+"commands"              Show command list
+"version"               Show the script version
+"credits"               Show the credits
+'''
+MSG_CMDERROR = '''
+The command is invalid, try again.
+(Use "commands" to see the command list.)
+'''
+MSG_CREDITS = '''
+Author: Leonardo Isso
+<leoisso.work@gmail.com>
+https://leonardoisso.com.br/
+'''
+MSG_VERSION = '1.0.0'
