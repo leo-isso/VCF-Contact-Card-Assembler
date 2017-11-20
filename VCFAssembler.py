@@ -13,14 +13,14 @@ class ContactAssembler():
         self.name = ''
         self.treatment = ''
         self.final_name = ''
-        self.phone_type = ''
-        self.phone_num = ''
-        self.adress_type = ''
-        self.adress_adress = ''
-        self.adress_city = ''
-        self.adress_state = ''
-        self.adress_zip = ''
-        self.adress_country = ''
+        self.phone_type = []
+        self.phone_num = []
+        self.adress_type = []
+        self.adress_adress = []
+        self.adress_city = []
+        self.adress_state = []
+        self.adress_zip = []
+        self.adress_country = []
         self.photo = ''
         self.email = ''
         self.bday = ''
@@ -75,8 +75,8 @@ class ContactAssembler():
         if p_type == '':
             p_type = 'HOME'
         
-        self.phone_type == p_type
-        self.phone_num == p_number
+        self.phone_type.append(p_type)
+        self.phone_num.append(p_number)
 
         if self.version == '2.1':
             template_phone = f'TEL;{p_type};VOICE:{p_number}'
@@ -89,12 +89,12 @@ class ContactAssembler():
         if a_type == '':
             a_type = 'HOME'
 
-        self.adress_type = a_type
-        self.adress_adress = a_adress
-        self.adress_city = a_city
-        self.adress_state = a_state
-        self.adress_zip = a_zipcode
-        self.adress_country = a_country
+        self.adress_type.append(a_type)
+        self.adress_adress.append(a_adress)
+        self.adress_city.append(a_city)
+        self.adress_state.append(a_state)
+        self.adress_zip.append(a_zipcode)
+        self.adress_country.append(a_country)
 
         if self.version == '2.1':
             template_adress = f'ADR;{a_type}:;;{a_adress};{a_city};{a_state};{a_zipcode};{a_country}'
