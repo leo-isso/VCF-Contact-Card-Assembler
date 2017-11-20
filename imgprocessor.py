@@ -13,6 +13,7 @@ def encodeImage(file_location):
     image_file = file.read()
     file.close()
     encoded_string = base64.b64encode(image_file)
+    encoded_string = encoded_string.decode('utf-8')
     return encoded_string
 
 def decodeImage():

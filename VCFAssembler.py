@@ -106,7 +106,10 @@ class ContactAssembler():
     def createImg(self, img_location):
         data_b64 = encodeImage(img_location)
 
-        template_photo = f'PHOTO;JPEG;ENCODING=BASE64:{data_b64}'
+        if self.version == '2.1':
+            template_photo = f'PHOTO;JPEG;ENCODING=BASE64:{data_b64}'
+        elif self.version == '3.0':
+            template_photo = f'PHOTO;JPEG;ENCODING=b:{data_b64}'
 
         self.addTemplate(template_photo)
 
@@ -128,5 +131,5 @@ if __name__ == '__main__':
     #for var in members:
     #    print('\n' + var) 
 
-    with open('log.txt', 'w+') as file:
+    with open('log.vcf', 'w+') as file:
         file.write(a.template)
