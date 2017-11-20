@@ -32,7 +32,7 @@ def genFileString(vcf_filelocation=None, vcf_filename=None):
     if vcf_filename is None:
         vcf_filename = FILENAME
     
-    if vcf_filelocation is '':
+    if vcf_filelocation == '':
         file_string = vcf_filename + FILEEXT
         return file_string
     else:
