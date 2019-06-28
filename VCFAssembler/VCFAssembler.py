@@ -10,7 +10,6 @@ class VCFAssembler(metaclass=ABCMeta):
         self.vcf_body = ''
         self.version = version
         self.name = name
-        self.treatment = kwargs['treatment']
         self.phones = kwargs['phones']
         self.email = kwargs['email']
         self.photo = kwargs['photo']
@@ -49,3 +48,7 @@ class VCFAssembler(metaclass=ABCMeta):
         
         self.add_to_body(f'N:{vcf_surname}{vcf_name}{vcf_treatment}')
         self.add_to_body(f'FN:{surname} {name}')
+
+    def build_vcf_body(self):
+        self.set_version()
+        self.set_name()
