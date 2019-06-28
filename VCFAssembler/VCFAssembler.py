@@ -17,6 +17,18 @@ class VCFAssembler(metaclass=ABCMeta):
 
     def add_to_body(self, line):
         self.vcf_body += f'\n{line}'
+    
+    @classmethod
+    def set_review(self):
+        pass
+
+    @classmethod
+    def set_phone(self):
+        pass
+
+    @classmethod
+    def set_image(self):
+        pass
 
     def set_version(self):
         if self.version == '2.1':
@@ -37,4 +49,3 @@ class VCFAssembler(metaclass=ABCMeta):
         
         self.add_to_body(f'N:{vcf_surname}{vcf_name}{vcf_treatment}')
         self.add_to_body(f'FN:{surname} {name}')
-    
