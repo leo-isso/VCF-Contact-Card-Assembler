@@ -24,4 +24,17 @@ class VCFAssembler(metaclass=ABCMeta):
         elif self.version == '3.0':
             self.add_to_body('VERSION:3.0')
         else:
-          raise 'Invalid Version'
+            raise 'Invalid Version'
+
+    def set_name(self):
+        name = self.name['name']
+        surname = self.name['surname']
+        treatment = self.name['treatment']
+
+        vcf_name = f'{name};'
+        vcf_surname = f'{surname};'
+        vcf_treatment = f';{treatment};'
+        
+        self.add_to_body(f'N:{vcf_surname}{vcf_name}{vcf_treatment}')
+        self.add_to_body(f'FN:{surname} {name}')
+    
