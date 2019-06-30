@@ -10,9 +10,9 @@ class VCFAssembler(metaclass=ABCMeta):
         self.vcf_body = ''
         self.version = version
         self.name = name
-        self.phones = kwargs['phones']
-        self.email = kwargs['email']
-        self.photo = kwargs['photo']
+        # self.phones = kwargs['phones']
+        # self.email = kwargs['email']
+        # self.photo = kwargs['photo']
 
     def add_to_body(self, line, break_line):
         if break_line:
