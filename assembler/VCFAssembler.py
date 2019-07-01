@@ -51,6 +51,10 @@ class VCFAssembler(metaclass=ABCMeta):
         self.add_to_body(f'N:{vcf_surname}{vcf_name}{vcf_treatment}', True)
         self.add_to_body(f'FN:{surname} {name}', True)
 
+    def set_email(self):
+        email = self.email
+        self.add_to_body(f'EMAIL:{email}', True)
+
     def build_vcf_body(self):
         self.add_to_body(self.VCARD_START, False)
         self.set_version()
