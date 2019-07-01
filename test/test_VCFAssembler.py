@@ -30,6 +30,11 @@ class TestVCFAssembler(unittest.TestCase):
         self.assembler.set_email()
         self.assertEquals(self.assembler.vcf_body, result)
 
+    def test_build_vcf_body(self):
+        result = """BEGIN:VCARD\nVERSION:3.0\nN:Isso;Leonardo;;Mr.;\nFN:Isso Leonardo\nEMAIL:leoisso.work@gmail.com\nEND:VCARD"""
+        self.assembler.build_vcf_body()
+        self.assertEquals(self.assembler.vcf_body, result)
+
 
 if __name__ == "__main__":
     unittest.main()
