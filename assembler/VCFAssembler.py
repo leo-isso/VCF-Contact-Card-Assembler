@@ -71,5 +71,5 @@ class VCFAssembler(metaclass=ABCMeta):
             self.set_image()
         
         self.set_review()
-        self.add_to_body(self.VCARD_START)
+        self.add_to_body(self.VCARD_END)
         
