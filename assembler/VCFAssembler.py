@@ -5,14 +5,14 @@ class VCFAssembler(metaclass=ABCMeta):
     VCARD_START =  'BEGIN:VCARD'
     VCARD_END =  'END:VCARD'
 
-    def __init__(self, version, name, phones=None, email=None, image=None):
+    def __init__(self, name, phones=None, email=None, image=None):
         self.vcf_card = ''
         self.vcf_body = ''
-        self.version = version
         self.name = name
         self.phones = phones
         self.email = email
         self.image = image
+        self.version = '3.0'
         self.revision = None
 
     def add_to_body(self, line, break_line=True):
@@ -33,12 +33,8 @@ class VCFAssembler(metaclass=ABCMeta):
         pass
 
     def set_version(self):
-        if self.version == '2.1':
-            self.add_to_body('VERSION:2.1')
-        elif self.version == '3.0':
-            self.add_to_body('VERSION:3.0')
-        else:
-            raise 'Invalid Version'
+        vcf_version = f'VERSION:{self.version}'
+        self.add_to_body(vcf_version)
 
     def set_name(self):
         name = self.name['name']
