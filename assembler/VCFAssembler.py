@@ -13,6 +13,7 @@ class VCFAssembler(metaclass=ABCMeta):
         self.phones = phones
         self.email = email
         self.image = image
+        self.revision = None
 
     def add_to_body(self, line, break_line=True):
         if break_line:
@@ -24,7 +25,7 @@ class VCFAssembler(metaclass=ABCMeta):
         pass
 
     @classmethod
-    def set_phone(self):
+    def set_phones(self):
         pass
 
     @classmethod
@@ -59,5 +60,16 @@ class VCFAssembler(metaclass=ABCMeta):
         self.add_to_body(self.VCARD_START, False)
         self.set_version()
         self.set_name()
+
+        if self.email:
+            self.set_email()
+        
+        if self.phones:
+            self.set_phones()
+        
+        if self.image:
+            self.set_image()
+        
+        self.set_review()
         self.add_to_body(self.VCARD_START)
         
