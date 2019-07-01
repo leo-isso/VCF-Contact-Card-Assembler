@@ -1,6 +1,6 @@
 from assembler.VCFAssembler import VCFAssembler
-import unittest
 
+import unittest
 
 class TestVCFAssembler(unittest.TestCase):
     
