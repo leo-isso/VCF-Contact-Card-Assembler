@@ -1,0 +1,1 @@
+from assembler.VCFAssembler import VCFAssembler
