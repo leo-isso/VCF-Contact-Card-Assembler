@@ -5,14 +5,14 @@ class VCFAssembler(metaclass=ABCMeta):
     VCARD_START =  'BEGIN:VCARD'
     VCARD_END =  'END:VCARD'
 
-    def __init__(self, version, name, **kwargs):
+    def __init__(self, version, name, phones=None, email=None, image=None):
         self.vcf_card = ''
         self.vcf_body = ''
         self.version = version
         self.name = name
-        # self.phones = kwargs['phones']
-        # self.email = kwargs['email']
-        # self.photo = kwargs['photo']
+        self.phones = phones
+        self.email = email
+        self.image = image
 
     def add_to_body(self, line, break_line):
         if break_line:
