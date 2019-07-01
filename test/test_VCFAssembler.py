@@ -15,7 +15,7 @@ class TestVCFAssembler(unittest.TestCase):
         self.assembler = VCFAssembler(name, email=email)
 
     def test_set_version(self):
-        result = """\nVERSION:3.0"""
+        result = f"""\nVERSION:{self.assembler.version}"""
         self.assembler.set_version()
         self.assertEquals(self.assembler.vcf_body, result)
 
