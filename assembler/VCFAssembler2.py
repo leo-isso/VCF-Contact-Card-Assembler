@@ -7,7 +7,7 @@ class VCFAssembler2(VCFAssembler):
 
     def __init__(self, name, phones=None, email=None, image=None):
       super().__init__(name, phones, email, image)
-      self.version = '3.0'
+      self.version = '2.1'
 
     def set_review(self):
         self.revision = strftime("%Y%m%dT%H%M%SZ", gmtime())
