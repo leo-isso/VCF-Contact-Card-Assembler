@@ -12,8 +12,8 @@ class TestVCFAssembler2(unittest.TestCase):
             'treatment': 'Mr.'
         }
         phones = [
-          {'type': 'TEL', 'number': '999999999'}, 
-          {'type': 'CEL', 'number': '999999999'}
+          {'type': 'WORK', 'number': '999999999'}, 
+          {'type': 'HOME', 'number': '999999999'}
         ]
         email = 'leoisso.work@gmail.com'
 
@@ -30,7 +30,7 @@ class TestVCFAssembler2(unittest.TestCase):
         self.assertEqual(self.assembler.vcf_body, result)
 
     def test_set_phones(self):
-        result = f'\nTEL;TEL;VOICE:999999999\nTEL;CEL;VOICE:999999999'
+        result = f'\nTEL;WORK;VOICE:999999999\nTEL;HOME;VOICE:999999999'
         self.assembler.set_phones()
         self.assertEqual(self.assembler.vcf_body, result)
 
