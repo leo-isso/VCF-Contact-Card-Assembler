@@ -14,7 +14,7 @@ class VCFAssembler(metaclass=ABCMeta):
         self.email = email
         self.image = image
 
-    def add_to_body(self, line, break_line):
+    def add_to_body(self, line, break_line=True):
         if break_line:
             self.vcf_body += '\n'
         self.vcf_body += f'{line}'
@@ -33,9 +33,9 @@ class VCFAssembler(metaclass=ABCMeta):
 
     def set_version(self):
         if self.version == '2.1':
-            self.add_to_body('VERSION:2.1', True)
+            self.add_to_body('VERSION:2.1')
         elif self.version == '3.0':
-            self.add_to_body('VERSION:3.0', True)
+            self.add_to_body('VERSION:3.0')
         else:
             raise 'Invalid Version'
 
@@ -48,16 +48,16 @@ class VCFAssembler(metaclass=ABCMeta):
         vcf_surname = f'{surname};'
         vcf_treatment = f';{treatment};'
         
-        self.add_to_body(f'N:{vcf_surname}{vcf_name}{vcf_treatment}', True)
-        self.add_to_body(f'FN:{surname} {name}', True)
+        self.add_to_body(f'N:{vcf_surname}{vcf_name}{vcf_treatment}')
+        self.add_to_body(f'FN:{surname} {name}')
 
     def set_email(self):
         email = self.email
-        self.add_to_body(f'EMAIL:{email}', True)
+        self.add_to_body(f'EMAIL:{email}')
 
     def build_vcf_body(self):
         self.add_to_body(self.VCARD_START, False)
         self.set_version()
         self.set_name()
-        self.add_to_body(self.VCARD_START, True)
+        self.add_to_body(self.VCARD_START)
         
