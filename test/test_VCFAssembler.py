@@ -5,7 +5,6 @@ import unittest
 class TestVCFAssembler(unittest.TestCase):
     
     def setUp(self):
-        version = '3.0'
         name = {
             'name': 'Leonardo',
             'surname': 'Isso',
@@ -13,7 +12,7 @@ class TestVCFAssembler(unittest.TestCase):
         }
         email = 'leoisso.work@gmail.com'
 
-        self.assembler = VCFAssembler(version, name, email=email)
+        self.assembler = VCFAssembler(name, email=email)
 
     def test_set_version(self):
         result = """\nVERSION:3.0"""
@@ -34,7 +33,6 @@ class TestVCFAssembler(unittest.TestCase):
         result = """BEGIN:VCARD\nVERSION:3.0\nN:Isso;Leonardo;;Mr.;\nFN:Isso Leonardo\nEMAIL:leoisso.work@gmail.com\nEND:VCARD"""
         self.assembler.build_vcf_body()
         self.assertEquals(self.assembler.vcf_body, result)
-
 
 if __name__ == "__main__":
     unittest.main()
