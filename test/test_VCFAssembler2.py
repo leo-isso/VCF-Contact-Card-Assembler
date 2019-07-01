@@ -20,7 +20,8 @@ class TestVCFAssembler2(unittest.TestCase):
         file = open('./test/mock/test_img.png', 'rb')
         image = file.read()
         file.close()
-
+        self.encoded_image = encode_image_file(image)
+        
         self.assembler = VCFAssembler2(name, phones, email, image)
 
     def test_set_review(self):
@@ -34,8 +35,7 @@ class TestVCFAssembler2(unittest.TestCase):
         self.assertEqual(self.assembler.vcf_body, result)
 
     def test_set_image(self):
-        encoded_image = encode_image_file(self.assembler.image)
-        result = f'\nPHOTO;JPEG;ENCODING=BASE64:{encoded_image}'
+        result = f'\nPHOTO;JPEG;ENCODING=BASE64:{self.encoded_image}'
         self.assembler.set_image()
         self.assertEqual(self.assembler.vcf_body, result)
 
