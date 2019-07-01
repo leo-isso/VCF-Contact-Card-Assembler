@@ -5,10 +5,14 @@ from time import gmtime, strftime
 
 class VCFAssembler2(VCFAssembler):
 
+    def __init__(self, name, phones=None, email=None, image=None):
+      super().__init__(name, phones, email, image)
+      self.version = '3.0'
+
     def set_review(self):
-      self.revision = strftime("%Y%m%dT%H%M%SZ", gmtime())
-      vcf_revision = f'REV:{self.revision}'
-      self.add_to_body(vcf_revision)
+        self.revision = strftime("%Y%m%dT%H%M%SZ", gmtime())
+        vcf_revision = f'REV:{self.revision}'
+        self.add_to_body(vcf_revision)
 
     def set_phones(self):
         for phone in self.phones:
