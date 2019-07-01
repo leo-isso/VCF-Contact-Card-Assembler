@@ -17,22 +17,22 @@ class TestVCFAssembler(unittest.TestCase):
     def test_set_version(self):
         result = f"""\nVERSION:{self.assembler.version}"""
         self.assembler.set_version()
-        self.assertEquals(self.assembler.vcf_body, result)
+        self.assertEqual(self.assembler.vcf_body, result)
 
     def test_set_name(self):
         result = """\nN:Isso;Leonardo;;Mr.;\nFN:Isso Leonardo"""
         self.assembler.set_name()
-        self.assertEquals(self.assembler.vcf_body, result)
+        self.assertEqual(self.assembler.vcf_body, result)
 
     def test_set_email(self):
         result = """\nEMAIL:leoisso.work@gmail.com"""
         self.assembler.set_email()
-        self.assertEquals(self.assembler.vcf_body, result)
+        self.assertEqual(self.assembler.vcf_body, result)
 
     def test_build_vcf_body(self):
         result = """BEGIN:VCARD\nVERSION:3.0\nN:Isso;Leonardo;;Mr.;\nFN:Isso Leonardo\nEMAIL:leoisso.work@gmail.com\nEND:VCARD"""
         self.assembler.build_vcf_body()
-        self.assertEquals(self.assembler.vcf_body, result)
+        self.assertEqual(self.assembler.vcf_body, result)
 
 if __name__ == "__main__":
     unittest.main()
