@@ -24,6 +24,21 @@ class TestVCFAssembler2(unittest.TestCase):
         
         self.assembler = VCFAssembler2(name, phones, email, image)
 
+    def test_set_version(self):
+        result = f"""\nVERSION:{self.assembler.version}"""
+        self.assembler.set_version()
+        self.assertEqual(self.assembler.vcf_body, result)
+
+    def test_set_name(self):
+        result = """\nN:Isso;Leonardo;;Mr.;\nFN:Isso Leonardo"""
+        self.assembler.set_name()
+        self.assertEqual(self.assembler.vcf_body, result)
+
+    def test_set_email(self):
+        result = """\nEMAIL:leoisso.work@gmail.com"""
+        self.assembler.set_email()
+        self.assertEqual(self.assembler.vcf_body, result)
+
     def test_set_review(self):
         self.assembler.set_review()
         result = f'\nREV:{self.assembler.revision}'
@@ -37,6 +52,11 @@ class TestVCFAssembler2(unittest.TestCase):
     def test_set_image(self):
         result = f'\nPHOTO;JPEG;ENCODING=BASE64:{self.encoded_image}'
         self.assembler.set_image()
+        self.assertEqual(self.assembler.vcf_body, result)
+
+    def test_build_vcf_body(self):
+        self.assembler.build_vcf_body()
+        result = f'BEGIN:VCARD\nVERSION:2.1\nN:Isso;Leonardo;;Mr.;\nFN:Isso Leonardo\nEMAIL:leoisso.work@gmail.com\nTEL;WORK;VOICE:999999999\nTEL;HOME;VOICE:999999999\nPHOTO;JPEG;ENCODING=BASE64:{self.encoded_image}\nREV:{self.assembler.revision}\nEND:VCARD'
         self.assertEqual(self.assembler.vcf_body, result)
 
 if __name__ == "__main__":
