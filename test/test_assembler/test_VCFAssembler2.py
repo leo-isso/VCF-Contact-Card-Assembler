@@ -25,17 +25,17 @@ class TestVCFAssembler2(unittest.TestCase):
         self.assembler = VCFAssembler2(name, phones, email, image)
 
     def test_set_version(self):
-        result = f"""\nVERSION:{self.assembler.version}"""
+        result = f'\nVERSION:2.1'
         self.assembler.set_version()
         self.assertEqual(self.assembler.vcf_body, result)
 
     def test_set_name(self):
-        result = """\nN:Isso;Leonardo;;Mr.;\nFN:Isso Leonardo"""
+        result = '\nN:Isso;Leonardo;;Mr.;\nFN:Isso Leonardo'
         self.assembler.set_name()
         self.assertEqual(self.assembler.vcf_body, result)
 
     def test_set_email(self):
-        result = """\nEMAIL:leoisso.work@gmail.com"""
+        result = '\nEMAIL:leoisso.work@gmail.com'
         self.assembler.set_email()
         self.assertEqual(self.assembler.vcf_body, result)
 
