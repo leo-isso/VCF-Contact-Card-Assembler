@@ -4,10 +4,11 @@ from image_encoder.image_encoder import encode_image_file
 from time import gmtime, strftime
 
 class VCFAssembler2(VCFAssembler):
+      
+    version = '2.1'
 
     def __init__(self, name, phones=None, email=None, image=None):
       super().__init__(name, phones, email, image)
-      self.version = '2.1'
 
     def set_review(self):
         self.revision = strftime("%Y%m%dT%H%M%SZ", gmtime())

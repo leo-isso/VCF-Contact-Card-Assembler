@@ -12,8 +12,11 @@ class VCFAssembler(metaclass=ABCMeta):
         self.phones = phones
         self.email = email
         self.image = image
-        self.version = '3.0'
         self.revision = None
+
+    @property
+    def version(self):
+        raise NotImplementedError()
 
     def add_to_body(self, line, break_line=True):
         if break_line:
@@ -22,15 +25,15 @@ class VCFAssembler(metaclass=ABCMeta):
     
     @classmethod
     def set_review(self):
-        pass
+        raise NotImplementedError()
 
     @classmethod
     def set_phones(self):
-        pass
+        raise NotImplementedError()
 
     @classmethod
     def set_image(self):
-        pass
+        raise NotImplementedError()
 
     def set_version(self):
         vcf_version = f'VERSION:{self.version}'
