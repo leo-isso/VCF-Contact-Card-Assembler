@@ -17,11 +17,6 @@ class VCFAssembler(metaclass=ABCMeta):
     @property
     def version(self):
         raise NotImplementedError()
-
-    def add_to_body(self, line, break_line=True):
-        if break_line:
-            self.vcf_body += '\n'
-        self.vcf_body += f'{line}'
     
     @classmethod
     def set_review(self):
@@ -34,6 +29,11 @@ class VCFAssembler(metaclass=ABCMeta):
     @classmethod
     def set_image(self):
         raise NotImplementedError()
+
+    def add_to_body(self, line, break_line=True):
+        if break_line:
+            self.vcf_body += '\n'
+        self.vcf_body += f'{line}'
 
     def set_version(self):
         vcf_version = f'VERSION:{self.version}'
