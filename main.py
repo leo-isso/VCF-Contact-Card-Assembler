@@ -1,2 +1,2 @@
-from assembler.VCFAssembler import VCFAssembler
 from assembler.VCFAssembler2 import VCFAssembler2
+from assembler.VCFAssembler3 import VCFAssembler3
